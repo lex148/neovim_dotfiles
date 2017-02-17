@@ -37,13 +37,15 @@ Plug 'leafgarland/typescript-vim'
 Plug 'blerins/flattown'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'mhartington/oceanic-next'
-
 Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim'
+Plug 'othree/html5.vim'
 Plug 'keith/swift.vim'
 Plug 'bling/vim-airline'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+Plug 'junegunn/fzf.vim'
 
 
 
