@@ -1,5 +1,6 @@
 " Ctrlp  =======================================================================
-nmap <leader>f :CtrlP<cr>
+nmap <leader>f :Files<cr>
+"nmap <leader>f :CtrlP<cr>
 nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>m :CtrlPMRU<cr>
 nmap <leader>l :CtrlPLine<cr>

@@ -26,24 +26,28 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'kana/vim-textobj-user'
-Plug 'Gundo'
+Plug 'vim-scripts/Gundo'
 Plug 'scrooloose/syntastic'
 Plug 'moll/vim-node'
 Plug 'godlygeek/tabular'
-Plug 'SuperTab'
+Plug 'vim-scripts/SuperTab'
 Plug 'benekastah/neomake'
 Plug 'dag/vim-fish'
 Plug 'leafgarland/typescript-vim'
 Plug 'blerins/flattown'
-"Plug 'altercation/vim-colors-solarized'
 Plug 'mhartington/oceanic-next'
-
 Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim'
+Plug 'othree/html5.vim'
 Plug 'keith/swift.vim'
 Plug 'bling/vim-airline'
+"Plug 'dodie/vim-disapprove-deep-indentation'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+Plug 'junegunn/fzf.vim'
+
+Plug 'junegunn/limelight.vim'
 
 
 
