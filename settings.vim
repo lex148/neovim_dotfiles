@@ -94,4 +94,5 @@ if has("multi_byte")
   set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 endif
 
+set backupcopy=yes
 

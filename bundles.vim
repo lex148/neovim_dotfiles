@@ -3,7 +3,6 @@
 set nocompatible
 filetype off
 
-
 source ~/.vim/bundle/vim-plug/plug.vim
 
 
@@ -43,9 +42,15 @@ Plug 'othree/yajs.vim'
 Plug 'othree/html5.vim'
 Plug 'keith/swift.vim'
 Plug 'bling/vim-airline'
+"Plug 'Blackrush/vim-gocode'
+Plug 'fatih/vim-go'
+
+
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
+
+
 
 
 
