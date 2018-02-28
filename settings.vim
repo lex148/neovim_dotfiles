@@ -21,8 +21,10 @@ endif
 
 " Theme
 syntax enable
-colorscheme OceanicNext
-set background=dark
+colorscheme challenger_deep
+let g:lightline = { 'colorscheme': 'challenger_deep'}
+"colorscheme OceanicNext
+"set background=dark
 
 
 " Temp Files ===================================================================

@@ -34,6 +34,7 @@ Plug 'dag/vim-fish'
 Plug 'othree/html5.vim'
 Plug 'keith/swift.vim'
 Plug 'fatih/vim-go'
+Plug 'challenger-deep-theme/vim'
 
 
 "Tools
