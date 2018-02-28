@@ -19,10 +19,12 @@ set hidden
 " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'go': ['/home/lex/src/GOPATH/bin/go-langserver'],
+    \ 'python': ['pyls'],
     \ }
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>

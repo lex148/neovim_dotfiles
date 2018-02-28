@@ -18,9 +18,11 @@ Plug 'tpope/vim-repeat'
 Plug 'bling/vim-airline'
 Plug 'blerins/flattown'
 Plug 'mhartington/oceanic-next'
+Plug 'challenger-deep-theme/vim'
 
 
 "Language Syntax Support
+Plug 'vim-syntastic/syntastic'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim'
@@ -34,7 +36,7 @@ Plug 'dag/vim-fish'
 Plug 'othree/html5.vim'
 Plug 'keith/swift.vim'
 Plug 'fatih/vim-go'
-Plug 'challenger-deep-theme/vim'
+Plug 'rust-lang/rust.vim'
 
 
 "Tools
