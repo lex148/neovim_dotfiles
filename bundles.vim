@@ -16,13 +16,15 @@ Plug 'tpope/vim-repeat'
 
 "Colors
 Plug 'bling/vim-airline'
+"Plug 'itchyny/lightline.vim'
 Plug 'blerins/flattown'
 Plug 'mhartington/oceanic-next'
 Plug 'challenger-deep-theme/vim'
+Plug 'fenetikm/falcon'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 
 "Language Syntax Support
-Plug 'vim-syntastic/syntastic'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim'
@@ -40,11 +42,12 @@ Plug 'rust-lang/rust.vim'
 
 
 "Tools
+Plug 'w0rp/ale' 
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 "Plug 'vim-scripts/SuperTab'
 "Plug 'tpope/vim-rails'
 "Plug 'nelstrom/vim-textobj-rubyblock'
@@ -54,11 +57,9 @@ Plug 'scrooloose/syntastic'
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'roxma/nvim-completion-manager'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-scripts/SuperTab'
 
 Plug 'godlygeek/tabular'
-Plug 'benekastah/neomake'
 Plug 'moll/vim-node'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
