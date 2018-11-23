@@ -56,7 +56,7 @@ Plug 'tpope/vim-surround'
 "Plug 'terryma/vim-multiple-cursors'
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-Plug 'roxma/nvim-completion-manager'
+"Plug 'roxma/nvim-completion-manager'
 Plug 'vim-scripts/SuperTab'
 
 Plug 'godlygeek/tabular'
