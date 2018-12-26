@@ -17,6 +17,7 @@ set hidden
 "endif
 
 " \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+" \ 'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],

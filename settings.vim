@@ -24,8 +24,8 @@ syntax enable
 "colorscheme challenger_deep
 "let g:lightline = { 'colorscheme': 'challenger_deep'}
 colorscheme OceanicNext
-"set background=dark
-colorscheme falcon
+set background=dark
+"colorscheme falcon
 
 
 " Temp Files ===================================================================
