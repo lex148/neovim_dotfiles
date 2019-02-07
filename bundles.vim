@@ -18,6 +18,7 @@ Plug 'tpope/vim-repeat'
 Plug 'bling/vim-airline'
 "Plug 'itchyny/lightline.vim'
 Plug 'blerins/flattown'
+Plug 'larsbs/vimterial_dark'
 Plug 'mhartington/oceanic-next'
 Plug 'challenger-deep-theme/vim'
 Plug 'fenetikm/falcon'
@@ -55,8 +56,8 @@ Plug 'tpope/vim-surround'
 "Plug 'vim-scripts/Gundo'
 "Plug 'terryma/vim-multiple-cursors'
 
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-Plug 'roxma/nvim-completion-manager'
+"Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+"Plug 'roxma/nvim-completion-manager'
 Plug 'vim-scripts/SuperTab'
 
 Plug 'godlygeek/tabular'
