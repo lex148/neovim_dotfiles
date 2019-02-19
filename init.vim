@@ -20,6 +20,10 @@ for f in split(glob('~/.config/nvim/settings/*.vim'), '\n')
     exe 'source' f
 endfor
 
+for f in split(glob('~/.config/nvim/filetypes/*.vim'), '\n')
+    exe 'source' f
+endfor
+
 for f in split(glob('~/.config/nvim/local/*.vim'), '\n')
   exe 'source' f
 endfor
