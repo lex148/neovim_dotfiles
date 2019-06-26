@@ -65,6 +65,7 @@ Plug 'moll/vim-node'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
 
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 
 if (executable('ag'))

@@ -26,3 +26,7 @@ function Tab4()
   set expandtab
   echom "tab 4!"
 endfunction
+
+function Align()
+  execute "normal" "gg=G<C-o><C-o>"
+endfunction
