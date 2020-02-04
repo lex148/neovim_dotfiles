@@ -43,11 +43,13 @@ Plug 'rust-lang/rust.vim'
 
 
 "Tools
-Plug 'w0rp/ale' 
-Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'w0rp/ale' 
+"Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-rake'
+"Plug 'tpope/vim-surround'
+"
 "Plug 'scrooloose/syntastic'
 "Plug 'vim-scripts/SuperTab'
 "Plug 'tpope/vim-rails'
@@ -58,7 +60,8 @@ Plug 'tpope/vim-surround'
 
 "Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 "Plug 'roxma/nvim-completion-manager'
-Plug 'vim-scripts/SuperTab'
+"Plug 'vim-scripts/SuperTab'
+
 
 Plug 'godlygeek/tabular'
 Plug 'moll/vim-node'
