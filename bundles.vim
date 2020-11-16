@@ -44,8 +44,8 @@ Plug 'rust-lang/rust.vim'
 
 "Tools
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'w0rp/ale' 
-"Plug 'mileszs/ack.vim'
+Plug 'w0rp/ale' 
+Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-rake'
 "Plug 'tpope/vim-surround'
