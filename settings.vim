@@ -23,10 +23,11 @@ endif
 syntax enable
 "colorscheme challenger_deep
 "let g:lightline = { 'colorscheme': 'challenger_deep'}
-colorscheme OceanicNext
-set background=dark
+"colorscheme OceanicNext
+"set background=dark
 "colorscheme falcon
 "colorscheme vimterial_dark
+colorscheme gruvbox
 
 
 " Temp Files ===================================================================
