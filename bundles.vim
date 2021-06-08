@@ -71,6 +71,10 @@ Plug 'scrooloose/nerdtree'
 ""Plug 'vim-scripts/SuperTab'
 
 
+" Tools DB
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+
 
 Plug 'godlygeek/tabular'
 "Plug 'moll/vim-node'
