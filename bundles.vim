@@ -74,8 +74,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'godlygeek/tabular'
 "Plug 'moll/vim-node'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+"Plug 'junegunn/fzf.vim'
 "
 "Plug 'tmux-plugins/vim-tmux-focus-events'
 "

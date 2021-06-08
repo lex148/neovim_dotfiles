@@ -6,6 +6,8 @@ com! Wall :wall
 
 map <leader>d !!date<CR> " Insert Date
 map <leader>i :set list!<CR> " Toggle invisible chars
+map <leader>f :FZF<CR>
+map <leader>f :FZF<CR>
 
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
@@ -25,3 +27,4 @@ nnoremap <leader>ev <C-w>s<C-w>j:e $MYVIMRC<cr>
 " HACK: fix del key in st
 map <F1> <del>
 map! <F1> <del>
+

@@ -11,7 +11,6 @@ source ~/.config/nvim/settings.vim
 source ~/.config/nvim/os.vim
 source ~/.config/nvim/autocommands.vim
 source ~/.config/nvim/completions.vim
-source ~/.config/nvim/mappings.vim
 
 
 
@@ -28,3 +27,4 @@ for f in split(glob('~/.config/nvim/local/*.vim'), '\n')
   exe 'source' f
 endfor
 
+source ~/.config/nvim/mappings.vim
