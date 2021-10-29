@@ -55,6 +55,8 @@ Plug 'neoclide/coc.nvim'
 "Plug 'w0rp/ale' 
 "Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+
 ""Plug 'tpope/vim-rake'
 ""Plug 'tpope/vim-surround'
 ""
@@ -74,11 +76,14 @@ Plug 'scrooloose/nerdtree'
 " Tools DB
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
-
-
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'godlygeek/tabular'
+
+"" Telescope 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+
 "Plug 'moll/vim-node'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 "Plug 'junegunn/fzf.vim'
 "
 "Plug 'tmux-plugins/vim-tmux-focus-events'

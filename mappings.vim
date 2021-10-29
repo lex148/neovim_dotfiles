@@ -6,8 +6,12 @@ com! Wall :wall
 
 map <leader>d !!date<CR> " Insert Date
 map <leader>i :set list!<CR> " Toggle invisible chars
-map <leader>f :FZF<CR>
-map <leader>f :FZF<CR>
+
+" map <leader>f :FZF<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
