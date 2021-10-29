@@ -58,7 +58,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 
 ""Plug 'tpope/vim-rake'
-""Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 ""
 ""Plug 'scrooloose/syntastic'
 ""Plug 'vim-scripts/SuperTab'
