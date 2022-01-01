@@ -1,30 +1,51 @@
-" vimrc
-"
-" Have fun!
-"
 
-set nocompatible
-filetype off
+"  General settings
+source $HOME/.config/nvim/general.vim
 
-source ~/.config/nvim/bundles.vim
-source ~/.config/nvim/settings.vim
-source ~/.config/nvim/os.vim
-source ~/.config/nvim/autocommands.vim
-source ~/.config/nvim/completions.vim
+" Key Mappings
+source $HOME/.config/nvim/keymaps.vim
+
+"--------------------------------------------------------------------------
+" Plugins
+"--------------------------------------------------------------------------
+
+" Automatically install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin(data_dir . '/plugins')
 
 
+  " COLOR SCHEMAS / APPEARANCE
+  source $HOME/.config/nvim/plugins/vim-sensible.vim
+  source $HOME/.config/nvim/plugins/vim-repeat.vim
+  "source $HOME/.config/nvim/plugins/dracula.vim
+  source $HOME/.config/nvim/plugins/gruvbox.vim
+  source $HOME/.config/nvim/plugins/vim-airline.vim
+
+  " General Behaver
+  source $HOME/.config/nvim/plugins/ripgrep.vim
+  source $HOME/.config/nvim/plugins/fzf.vim
+  "source $HOME/.config/nvim/plugins/dispatch.vim
+  source $HOME/.config/nvim/plugins/vim-test.vim
+  source $HOME/.config/nvim/plugins/heritage.vim
+  source $HOME/.config/nvim/plugins/lastplace.vim
+
+  " Language Syntax
+  source $HOME/.config/nvim/plugins/polyglot.vim
+  source $HOME/.config/nvim/plugins/yats.vim
+
+  " Language Server
+  source $HOME/.config/nvim/plugins/coc.vim
+  source $HOME/.config/nvim/plugins/cocfzf.vim
+
+  "SQL
+  source $HOME/.config/nvim/plugins/dadbod.vim
 
 
-for f in split(glob('~/.config/nvim/settings/*.vim'), '\n')
-    exe 'source' f
-endfor
+call plug#end()
+doautocmd User PlugLoaded
 
-for f in split(glob('~/.config/nvim/filetypes/*.vim'), '\n')
-    exe 'source' f
-endfor
-
-for f in split(glob('~/.config/nvim/local/*.vim'), '\n')
-  exe 'source' f
-endfor
-
-source ~/.config/nvim/mappings.vim
