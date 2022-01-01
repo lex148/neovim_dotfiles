@@ -33,6 +33,7 @@ call plug#begin(data_dir . '/plugins')
   source $HOME/.config/nvim/plugins/vim-test.vim
   source $HOME/.config/nvim/plugins/heritage.vim
   source $HOME/.config/nvim/plugins/lastplace.vim
+  source $HOME/.config/nvim/plugins/nerdtree.vim
 
   " Language Syntax
   source $HOME/.config/nvim/plugins/polyglot.vim
