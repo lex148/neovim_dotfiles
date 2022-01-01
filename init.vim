@@ -25,7 +25,7 @@ call plug#begin(data_dir . '/plugins')
   "source $HOME/.config/nvim/plugins/dracula.vim
   source $HOME/.config/nvim/plugins/gruvbox.vim
   source $HOME/.config/nvim/plugins/vim-airline.vim
-
+ 
   " General Behaver
   source $HOME/.config/nvim/plugins/ripgrep.vim
   source $HOME/.config/nvim/plugins/fzf.vim
@@ -34,10 +34,13 @@ call plug#begin(data_dir . '/plugins')
   source $HOME/.config/nvim/plugins/heritage.vim
   source $HOME/.config/nvim/plugins/lastplace.vim
   source $HOME/.config/nvim/plugins/nerdtree.vim
-
+  source $HOME/.config/nvim/plugins/editorconfig.vim
+  "source $HOME/.config/nvim/plugins/vim-visual-multi.vim
+ 
   " Language Syntax
   source $HOME/.config/nvim/plugins/polyglot.vim
   source $HOME/.config/nvim/plugins/yats.vim
+  source $HOME/.config/nvim/plugins/rainbow.vim
 
   " Language Server
   source $HOME/.config/nvim/plugins/coc.vim
