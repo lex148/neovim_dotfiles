@@ -35,11 +35,11 @@ call plug#begin(data_dir . '/plugins')
   source $HOME/.config/nvim/plugins/lastplace.vim
   source $HOME/.config/nvim/plugins/nerdtree.vim
   source $HOME/.config/nvim/plugins/editorconfig.vim
-  source $HOME/.config/nvim/plugins/vimtex.vim
   "source $HOME/.config/nvim/plugins/treesitter.vim
   "source $HOME/.config/nvim/plugins/vim-visual-multi.vim
- 
+  
   " Language Syntax
+  source $HOME/.config/nvim/plugins/vimtex.vim
   source $HOME/.config/nvim/plugins/polyglot.vim
   source $HOME/.config/nvim/plugins/yats.vim
   source $HOME/.config/nvim/plugins/rainbow.vim
