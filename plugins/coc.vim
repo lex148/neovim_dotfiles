@@ -15,10 +15,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
      \ 'coc-json',
      \ 'coc-sh',
      \ 'coc-tsserver',
-     \ 'coc-pairs',
      \ 'coc-sql',
      \ 'coc-svg',
  \ ]
+     ""\ 'coc-pairs',
      ""\ 'coc-git',
      ""\ 'coc-snippets',
 
