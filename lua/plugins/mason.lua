@@ -1,123 +1,88 @@
 
-return {
-
-  {
-    "williamboman/mason.nvim",
-    lazy = false,
-    config = function()
-      require("mason").setup()
-    end
-  },
-
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    config = function()
-      require("mason-lspconfig").setup()
-      require'lspconfig'.lua_ls.setup{}
-    end
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
-    config = function()
-    end
-  },
 
 
-  {
-    "simrat39/rust-tools.nvim",
-    lazy = false,
-    config = function()
-      local rt = require("rust-tools")
-      rt.setup({
-        server = {
-          on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-          end,
-        },
-      })
-    end
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    -- load cmp on InsertEnter
-    event = "InsertEnter",
-    -- these dependencies will only be loaded when cmp loads
-    -- dependencies are always lazy-loaded unless specified otherwise
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'hrsh7th/cmp-vsnip',
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
-    },
-
-  --{ -- Auto complete
-  --  'hrsh7th/nvim-cmp',
-  --  'hrsh7th/cmp-nvim-lsp',
-  --  'hrsh7th/cmp-nvim-lua',
-  --  'hrsh7th/cmp-nvim-lsp-signature-help',
-  --  'hrsh7th/cmp-vsnip',
-  --  'hrsh7th/cmp-path',
-  --  'hrsh7th/cmp-buffer',
-  --  'hrsh7th/vim-vsnip',
-  --},
-
-    config = function()
-
-      local cmp = require("cmp")
-      vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-          end,
-        },
-        window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "nvim_lua" },
-          { name = "luasnip" }, -- For luasnip users.
-          -- { name = "orgmode" },
-        }, {
-          { name = "buffer" },
-          { name = "path" },
-        }),
-      })
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
-      })
-
-    end,
-  },
+-- return {
+--
+--   "williamboman/mason.nvim",
+--   "williamboman/mason-lspconfig.nvim",
+--   "neovim/nvim-lspconfig", -- enable LSP
+--   "williamboman/nvim-lsp-installer",
+--
+--
+--   --{
+--   --  "simrat39/rust-tools.nvim",
+--   --  lazy = false,
+--   --  config = function()
+--   --    local rt = require("rust-tools")
+--   --    rt.setup({
+--   --      server = {
+--   --        on_attach = function(_, bufnr)
+--   --          -- Hover actions
+--   --          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--   --          -- Code action groups
+--   --          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--   --        end,
+--   --      },
+--   --    })
+--   --  end
+--   --},
+--
+-- }
 
 
-
-}
+ return {
+ 
+   {
+     "williamboman/mason.nvim",
+     lazy = false,
+     opts = {},
+     config = function()
+       require("mason").setup()
+     end
+   },
+ 
+   {
+     "williamboman/mason-lspconfig.nvim",
+     lazy = false,
+     opts = {
+       ensure_installed = {
+         "tsserver",
+         "html",
+         "csls",
+       }
+     },
+     config = function()
+       require("mason-lspconfig").setup()
+       require'lspconfig'.lua_ls.setup{}
+     end
+   },
+ 
+   {
+     "neovim/nvim-lspconfig",
+     lazy = false,
+     opts = {},
+     config = function()
+     end
+   },
+ 
+ 
+   {
+     "simrat39/rust-tools.nvim",
+     lazy = false,
+     config = function()
+       local rt = require("rust-tools")
+       rt.setup({
+         server = {
+           on_attach = function(_, bufnr)
+             -- Hover actions
+             vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+             -- Code action groups
+             vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+           end,
+         },
+       })
+     end
+   },
+ 
+ 
+ }
