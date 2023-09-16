@@ -1,4 +1,3 @@
-
 local opt = vim.opt
 
 opt.splitright = true
@@ -19,10 +18,10 @@ opt.termguicolors = true
 opt.undofile = true
 opt.signcolumn = 'yes'
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-opt.syntax="enable"
+opt.syntax = "enable"
 
 -- White characters =============================================================
-opt.tags="tags"
+opt.tags = "tags"
 opt.wrap = false
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -30,7 +29,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 opt.listchars:append({
-    trail = '·',
+  trail = '·',
 })
 
 opt.listchars.tab = '▸'
@@ -39,15 +38,17 @@ opt.list = true
 
 
 
+opt.background = 'dark'
 
 
 --opt.listchars=tab:▸\ ,trail:·
 --opt.colorcolumn = opt.colorcolumn + 1
 
 -- "Fix file open menu
-opt.wildmenu=true
-opt.wildmode="list:longest,full"
-opt.wildignore=".svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc,*-lock.*,*.lock"
+opt.wildmenu = true
+opt.wildmode = "list:longest,full"
+opt.wildignore =
+".svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc,*-lock.*,*.lock"
 -- set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 -- set wildmenu
 -- set wildmode=list:longest,full
@@ -57,6 +58,3 @@ opt.wildignore=".svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.j
 -- set backupdir=~/.local/share/nvim/backup//
 -- set updatetime=300 " Reduce time for highlighting other references
 -- set redrawtime=10000 " Allow more time for loading syntax on large files
-
-
-

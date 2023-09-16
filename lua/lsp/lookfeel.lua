@@ -63,7 +63,6 @@ return {
     }
 
     vim.diagnostic.config(config)
-
     vim.o.updatetime = 250
   end
 
