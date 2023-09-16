@@ -12,16 +12,39 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
-    opts = {
-      ensure_installed = {
-        "tsserver",
-        "html",
-        "csls",
-      }
-    },
     config = function()
-      require("mason-lspconfig").setup()
-      require 'lspconfig'.lua_ls.setup {}
+      local cmp_nvim_lsp = require('cmp_nvim_lsp')
+      local lspconfig = require('lspconfig')
+      --local capabilities = lspconfig.capabilities
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          'rust_analyzer',
+          'lua_ls',
+          'tsserver',
+          'html',
+          'cssls'
+        },
+        handlers = {
+          function(server)
+            lspconfig[server].setup({})
+          end,
+          ['cssls'] = function()
+            lspconfig.cssls.setup({
+              capabilities = cmp_nvim_lsp.default_capabilities()
+            })
+          end,
+          ['tsserver'] = function()
+            lspconfig.tsserver.setup({
+              settings = {
+                completions = {
+                  completeFunctionCalls = true
+                }
+              }
+            })
+          end
+        }
+      })
+      --require 'lspconfig'.lua_ls.setup {}
     end
   },
 
