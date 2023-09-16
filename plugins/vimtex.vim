@@ -1,2 +1,0 @@
-
-Plug 'lervag/vimtex'
