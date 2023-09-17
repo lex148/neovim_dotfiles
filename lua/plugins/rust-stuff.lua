@@ -4,7 +4,7 @@ return {
 
   {
     "simrat39/rust-tools.nvim",
-    lazy = false,
+    --lazy = false,
     config = function()
       local rt = require("rust-tools")
 
@@ -39,6 +39,7 @@ return {
 
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
     dependencies = {
       "mfussenegger/nvim-dap"
     },
