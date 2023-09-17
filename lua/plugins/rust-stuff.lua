@@ -13,7 +13,6 @@ return {
       local extension_path = codelldb:get_install_path() .. "/extension/"
       local codelldb_path = extension_path .. "adapter/codelldb"
       local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-      --local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
       rt.setup({
         dap = {
@@ -61,7 +60,7 @@ return {
       vim.keymap.set("n", "<C-h>", ':DapStepOut<CR>')
       vim.keymap.set("n", "<C-j>", ':DapStepOver<CR>')
       vim.keymap.set("n", "<C-l>", ':DapStepInto<CR>')
-      vim.keymap.set("n", "<C-b>", ':DapToggleBreakpoint<CR>')
+      vim.keymap.set("n", "<leader>b", ':DapToggleBreakpoint<CR>')
       vim.keymap.set("n", "<C-c>", ':DapContinue<CR>')
       vim.keymap.set("n", "<C-x>", ':DapTerminate<CR>')
     end
