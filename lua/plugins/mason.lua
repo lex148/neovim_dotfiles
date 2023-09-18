@@ -25,14 +25,13 @@ return {
           'cssls'
         },
         handlers = {
-          -- function(server)
-          --   lspconfig[server].setup({})
-          -- end,
+
           ['cssls'] = function()
             lspconfig.cssls.setup({
               capabilities = cmp_nvim_lsp.default_capabilities()
             })
           end,
+
           ['tsserver'] = function()
             lspconfig.tsserver.setup({
               settings = {
