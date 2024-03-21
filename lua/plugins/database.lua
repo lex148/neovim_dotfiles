@@ -5,6 +5,7 @@ return {
   dependencies = {
     { 'tpope/vim-dadbod', lazy = true },
     { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    { "nvim-neotest/nvim-nio", lazy = true }
   },
   cmd = {
     'DBUI',
