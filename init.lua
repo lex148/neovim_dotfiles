@@ -29,6 +29,7 @@ later(function()
 	add("nvim-tree/nvim-web-devicons")
 end)
 
+
 -- Safely execute immediately
 now(function()
 	vim.g.mapleader = ","
@@ -117,7 +118,7 @@ now(function()
 			require("mini.starter").sections.sessions(5, true),
 		},
 		header = [[
-		░ ]],
+		]],
 	})
 end)
 
@@ -131,6 +132,12 @@ now(function()
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
 	vim.keymap.set("n", "<leader>n", "<cmd>:Oil<CR>", { desc = "Open Directory" })
+end)
+
+later(function()
+  add('nvim-lua/plenary.nvim')
+	add('nvim-telescope/telescope.nvim')
+	vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<CR>", { desc = "Telescope Find" })
 end)
 
 now(function()
