@@ -139,6 +139,7 @@ now(function()
 	require("lspconfig").ruby_lsp.setup({})
 	require("lspconfig").solargraph.setup({})
 	require("lspconfig").tailwindcss.setup({})
+	require("lspconfig").tsserver.setup({})
 	require("lspconfig").omnisharp.setup({ cmd = { "OmniSharp" } })
 end)
 
