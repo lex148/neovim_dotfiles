@@ -7,49 +7,42 @@
 -- local MiniSessions = require("mini.sessions")
 -- local MiniExtra = require("mini.extra")
 
---  keymap("n", "<leader><space>", function()
---  	MiniPick.builtin.buffers()
---  end, { desc = "Find Buffers" })
---  keymap("n", "<leader>sf", function()
---  	MiniPick.builtin.files()
---  end, { desc = "Find Files" })
---  keymap("n", "<leader>sh", function()
---  	MiniPick.builtin.help()
---  end, { desc = "Find Helptags" })
---  keymap("n", "<leader>sd", function()
---  	MiniExtra.pickers.diagnostic()
---  end, { desc = "Find Diagnostic" })
---  keymap("n", "<leader>ss", function()
---  	MiniExtra.pickers.history()
---  end, { desc = "Find History" })
---  keymap("n", "<leader>sl", function()
---  	MiniExtra.pickers.lsp({ scope = "references" })
---  end, { desc = "Find Lsp" })
---  keymap("n", "<leader>sb", function()
---  	MiniExtra.pickers.buf_lines()
---  end, { desc = "Find Lines" })
---  keymap("n", "<leader>st", function()
---  	MiniExtra.pickers.treesitter()
---  end, { desc = "Find TS" })
---  keymap("n", "<leader>sk", function()
---  	MiniExtra.pickers.keymaps()
---  end, { desc = "Find Keys" })
---  keymap("n", "<leader>sc", function()
---  	MiniExtra.pickers.commands()
---  end, { desc = "Find Commands" })
---  keymap("n", "<leader>sp", function()
---  	MiniPick.builtin.grep_live()
---  end, { desc = "Find Live Grep" })
---
---  keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Hover documentation" })
---  keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to definition" })
---  keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to declaration" })
---  keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", { desc = "Go to implementation" })
---  keymap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", { desc = "Go to type definition" })
---  keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "Go to reference" })
---  keymap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { desc = "Show function signature" })
---  keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = "Rename symbol" })
---  keymap("n", "gx", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Execute code action" })
---  keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Show diagnostic" })
---  keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous diagnostic" })
---  keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next diagnostic" })
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
+
