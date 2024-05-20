@@ -17,6 +17,7 @@ end
 
 -- Set up 'mini.deps' (customize to your liking)
 require("mini.deps").setup()
+require("mini.sessions").setup()
 
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
