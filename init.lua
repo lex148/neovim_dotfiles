@@ -212,6 +212,17 @@ later(function()
 	})
 end)
 
+later(function()
+
+	vim.cmd [[
+	augroup MiniCompletionAdjustments
+		autocmd!
+		autocmd CompleteDone * lua require'my_completion_adjustments'.handle_complete_done()
+	augroup END
+]]
+
+end)
+
 now(function()
 	vim.opt.spell = true
 	vim.opt.autoread = true
@@ -295,13 +306,18 @@ now(function()
 	local buffmt = require("efmls-configs.formatters.buf")
 	local reek = require("efmls-configs.linters.reek")
 	local rubocop = require("efmls-configs.linters.rubocop")
-	local rustfmt = require("efmls-configs.formatters.rustfmt")
+	--local rustfmt = require("efmls-configs.formatters.rustfmt")
 	local sqlfluff = require("efmls-configs.linters.sqlfluff")
 	local sql_formatter = require("efmls-configs.formatters.sql-formatter")
 	local taplo = require("efmls-configs.formatters.taplo")
 	local yamllint = require("efmls-configs.linters.yamllint")
 	local prettier = require("efmls-configs.formatters.prettier")
 	local dprint = require("efmls-configs.formatters.dprint")
+
+	local rustfmt = {
+		formatCommand = "rustfmt --edition 2021 --emit=stdout",
+		formatStdin = true,
+	}
 
 	local languages = {
 		javascript = { eslint_d, dprint },
@@ -352,7 +368,7 @@ now(function()
 	require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {}))
 
 	local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-	vim.api.nvim_create_autocmd("BufWritePost", {
+	vim.api.nvim_create_autocmd("BufWritePre", {
 		group = lsp_fmt_group,
 		callback = function(ev)
 			local efm = vim.lsp.get_active_clients({ name = "efm", bufnr = ev.buf })
@@ -364,6 +380,7 @@ now(function()
 			vim.lsp.buf.format({ name = "efm" })
 		end,
 	})
+
 end)
 
 now(function()
