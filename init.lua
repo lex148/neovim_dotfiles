@@ -175,6 +175,11 @@ later(function()
 			{ mode = "n", keys = "g" },
 			{ mode = "x", keys = "g" },
 
+			-- { mode = "n", keys = "[" },
+			-- { mode = "n", keys = "]" },
+			-- { mode = "x", keys = "[" },
+			-- { mode = "x", keys = "]" },
+
 			-- Marks
 			{ mode = "n", keys = "'" },
 			{ mode = "n", keys = "`" },
@@ -386,7 +391,7 @@ end)
 now(function()
 	add({
 		source = "mrcjkb/rustaceanvim",
-		checkout = "4.23.1",
+		checkout = "4.23.5",
 		monitor = "master",
 	})
 
@@ -402,6 +407,33 @@ now(function()
 		},
 	}
 end)
+
+
+
+-- Function to show diagnostics on cursor hold
+local function lsp_hover_diagnostics()
+    local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+end
+
+-- Set up autocmd for showing diagnostics on CursorHold
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function()
+        lsp_hover_diagnostics()
+    end,
+})
+
+-- Set the updatetime option in Lua
+vim.opt.updatetime = 300
+
+
 
 later(function()
 		-- Define custom diagnostic signs
