@@ -403,6 +403,15 @@ now(function()
 	}
 end)
 
+later(function()
+		-- Define custom diagnostic signs
+	vim.fn.sign_define("DiagnosticSignError", {text = "✘", texthl = "DiagnosticSignError"})
+	vim.fn.sign_define("DiagnosticSignWarn", {text = "▲", texthl = "DiagnosticSignWarn"})
+	vim.fn.sign_define("DiagnosticSignHint", {text = "⚑", texthl = "DiagnosticSignHint"})
+	vim.fn.sign_define("DiagnosticSignInfo", {text = "ℹ", texthl = "DiagnosticSignInfo"})
+
+end)
+
 now(function()
 	add("tpope/vim-rails")
 	add("tpope/vim-fugitive")
