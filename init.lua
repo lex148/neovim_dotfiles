@@ -218,14 +218,12 @@ later(function()
 end)
 
 later(function()
-
 	vim.cmd [[
 	augroup MiniCompletionAdjustments
 		autocmd!
 		autocmd CompleteDone * lua require'my_completion_adjustments'.handle_complete_done()
 	augroup END
 ]]
-
 end)
 
 now(function()
@@ -397,6 +395,15 @@ now(function()
 
 	vim.g.rustaceanvim = {
 		server = {
+			-- capabilities = {
+			-- 	textDocument = {
+			-- 		completion = {
+			-- 			completionItem = {
+			-- 				snippetSupport = false,
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 			default_settings = {
 				["rust-analyzer"] = {
 					cargo = { loadOutDirsFromCheck = true },
