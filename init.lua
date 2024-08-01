@@ -30,7 +30,6 @@ later(function()
 	add("nvim-tree/nvim-web-devicons")
 end)
 
-
 -- Safely execute immediately
 now(function()
 	vim.g.mapleader = ","
@@ -136,8 +135,8 @@ now(function()
 end)
 
 later(function()
-  add('nvim-lua/plenary.nvim')
-	add('nvim-telescope/telescope.nvim')
+	add("nvim-lua/plenary.nvim")
+	add("nvim-telescope/telescope.nvim")
 	vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<CR>", { desc = "Telescope Find" })
 end)
 
@@ -218,14 +217,14 @@ later(function()
 end)
 
 --- Hand made fix for rust filling in autocomplete
--- later(function()
--- 	vim.cmd [[
--- 	augroup MiniCompletionAdjustments
--- 		autocmd!
--- 		autocmd CompleteDone * lua require'my_completion_adjustments'.handle_complete_done()
--- 	augroup END
--- ]]
--- end)
+later(function()
+	vim.cmd([[
+	augroup MiniCompletionAdjustments
+		autocmd!
+		autocmd CompleteDone * lua require'my_completion_adjustments'.handle_complete_done()
+	augroup END
+]])
+end)
 
 now(function()
 	vim.opt.spell = true
@@ -384,7 +383,6 @@ now(function()
 			vim.lsp.buf.format({ name = "efm" })
 		end,
 	})
-
 end)
 
 now(function()
@@ -396,15 +394,16 @@ now(function()
 
 	vim.g.rustaceanvim = {
 		server = {
-			-- capabilities = {
-			-- 	textDocument = {
-			-- 		completion = {
-			-- 			completionItem = {
-			-- 				snippetSupport = false,
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
+			-- capabilities disable snippet so we can use ours
+			capabilities = {
+				textDocument = {
+					completion = {
+						completionItem = {
+							snippetSupport = false,
+						},
+					},
+				},
+			},
 			default_settings = {
 				["rust-analyzer"] = {
 					cargo = { loadOutDirsFromCheck = true },
@@ -414,113 +413,103 @@ now(function()
 			},
 		},
 	}
-
-
 end)
 
-
-
--- This fixes snippets in rust autocomplete. 
-now(function()
-
-	local function expand_snippet(event)
-		print("CompleteDone")
-		print(vim.inspect(event))
-
-		local comp = vim.v.completed_item
-		local kind = vim.lsp.protocol.CompletionItemKind
-		local item = vim.tbl_get(comp, "user_data", "nvim", "lsp", "completion_item")
-
-		print(vim.inspect(item))
-		if item then
-			print(vim.inspect(item.insertTextFormat))
-			print(vim.inspect(item.kind))
-			print(vim.inspect(item.kind == kind.Snippet))
-			print(vim.inspect(item.kind == kind.Keyword))
-			print(vim.inspect(kind.Snippet))
-			print(vim.inspect(kind.Keyword))
-		end
-
-		-- Check that we were given a snippet
-		if
-			not item
-			or not item.insertTextFormat
-			or not item.textEdit
-			or not item.textEdit.newText
-			or item.insertTextFormat == 1
-			-- or not (item.kind == kind.Snippet or item.kind == kind.Keyword)
-		then
-			return
-		end
-
-		print("adding text")
-		-- Remove the inserted text
-		local cursor = vim.api.nvim_win_get_cursor(0)
-		local line = vim.api.nvim_get_current_line()
-		local lnum = cursor[1] - 1
-		local start_col = cursor[2] - #comp.word
-
-		print("start_col")
-		print(start_col)
-
-		if start_col < 0 then
-			return
-		end
-
-		local set_text = vim.api.nvim_buf_set_text
-		local ok = pcall(set_text, event.buf, lnum, start_col, lnum, #line, { "" })
-
-		print("set_text")
-		print(set_text)
-		print("ok?")
-		print(ok)
-		if not ok 
-			then
-			return
-		end
-
-		print("insert snippet")
-		-- Insert snippet
-		local snip_text = vim.tbl_get(item, "textEdit", "newText") or item.insertText
-
-		assert(snip_text, "Language server indicated it had a snippet, but no snippet text could be found!")
-
-		-- warning: this api is not stable yet
-		vim.snippet.expand(snip_text)
-	end
-
-	vim.api.nvim_create_autocmd("CompleteDone", {
-		desc = "Expand LSP snippet",
-		callback = expand_snippet,
-	})
-end)
-
-
+--  -- This fixes snippets in rust autocomplete.
+--  now(function()
+--  	local function expand_snippet(event)
+--  		print("CompleteDone")
+--  		print(vim.inspect(event))
+--
+--  		local comp = vim.v.completed_item
+--  		local kind = vim.lsp.protocol.CompletionItemKind
+--  		local item = vim.tbl_get(comp, "user_data", "nvim", "lsp", "completion_item")
+--
+--  		print(vim.inspect(item))
+--  		if item then
+--  			print(vim.inspect(item.insertTextFormat))
+--  			print(vim.inspect(item.kind))
+--  			print(vim.inspect(item.kind == kind.Snippet))
+--  			print(vim.inspect(item.kind == kind.Keyword))
+--  			print(vim.inspect(kind.Snippet))
+--  			print(vim.inspect(kind.Keyword))
+--  		end
+--
+--  		-- Check that we were given a snippet
+--  		if
+--  			not item
+--  			or not item.insertTextFormat
+--  			or not item.textEdit
+--  			or not item.textEdit.newText
+--  			or item.insertTextFormat == 1
+--  			-- or not (item.kind == kind.Snippet or item.kind == kind.Keyword)
+--  		then
+--  			return
+--  		end
+--
+--  		print("adding text")
+--  		-- Remove the inserted text
+--  		local cursor = vim.api.nvim_win_get_cursor(0)
+--  		local line = vim.api.nvim_get_current_line()
+--  		local lnum = cursor[1] - 1
+--  		local start_col = cursor[2] - #comp.word
+--
+--  		print("start_col")
+--  		print(start_col)
+--
+--  		if start_col < 0 then
+--  			return
+--  		end
+--
+--  		local set_text = vim.api.nvim_buf_set_text
+--  		local ok = pcall(set_text, event.buf, lnum, start_col, lnum, #line, { "" })
+--
+--  		print("set_text")
+--  		print(set_text)
+--  		print("ok?")
+--  		print(ok)
+--  		if not ok then
+--  			return
+--  		end
+--
+--  		print("insert snippet")
+--  		-- Insert snippet
+--  		local snip_text = vim.tbl_get(item, "textEdit", "newText") or item.insertText
+--
+--  		assert(snip_text, "Language server indicated it had a snippet, but no snippet text could be found!")
+--
+--  		-- warning: this api is not stable yet
+--  		vim.snippet.expand(snip_text)
+--  	end
+--
+--  	vim.api.nvim_create_autocmd("CompleteDone", {
+--  		desc = "Expand LSP snippet",
+--  		callback = expand_snippet,
+--  	})
+--  end)
 
 -- Function to show diagnostics on cursor hold
 local function lsp_hover_diagnostics()
-    local opts = {
-        focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-        border = 'rounded',
-        source = 'always',
-        prefix = ' ',
-        scope = 'cursor',
-    }
-    vim.diagnostic.open_float(nil, opts)
+	local opts = {
+		focusable = false,
+		close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+		border = "rounded",
+		source = "always",
+		prefix = " ",
+		scope = "cursor",
+	}
+	vim.diagnostic.open_float(nil, opts)
 end
 
 -- Set up autocmd for showing diagnostics on CursorHold
 vim.api.nvim_create_autocmd("CursorHold", {
-    callback = function()
-        lsp_hover_diagnostics()
-    end,
+	callback = function()
+		lsp_hover_diagnostics()
+	end,
 })
 
 -- Set the updatetime option in Lua
 vim.opt.updatetime = 300
-
-
 
 later(function()
 	vim.diagnostic.config({
