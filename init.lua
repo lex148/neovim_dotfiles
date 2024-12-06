@@ -146,7 +146,8 @@ now(function()
 	require("lspconfig").ruby_lsp.setup({})
 	require("lspconfig").solargraph.setup({})
 	require("lspconfig").tailwindcss.setup({})
-	require("lspconfig").tsserver.setup({})
+	require("lspconfig").ts_ls.setup({})
+	-- require("lspconfig").tsserver.setup({})
 	require("lspconfig").omnisharp.setup({ cmd = { "OmniSharp" } })
 end)
 
@@ -536,13 +537,25 @@ end)
 
 later(function()
 	add("nvim-treesitter/nvim-treesitter")
-
 	require("nvim-treesitter.configs").setup({
 		highlight = { enable = true },
 		indent = { enable = true },
 		incremental_selection = { enable = true },
 		query_linter = { enable = true },
 		context_commentstring = { enable = true },
+	})
+end)
+
+later(function()
+	--add("nvim-lua/plenary.nvim")
+	--add("nvim-treesitter/nvim-treesitter")
+	add("antoinemadec/FixCursorHold.nvim")
+	add("nvim-neotest/nvim-nio")
+	add("nvim-neotest/neotest")
+	require("neotest").setup({
+		adapters = {
+			require("rustaceanvim.neotest"),
+		},
 	})
 end)
 
