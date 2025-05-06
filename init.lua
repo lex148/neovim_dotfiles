@@ -24,6 +24,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 now(function()
 	-- add("fynnfluegge/monet.nvim")
 	add("sainnhe/gruvbox-material")
+	--add("timmypidashev/darkbox.nvim")
 end)
 
 later(function()
@@ -48,6 +49,7 @@ now(function()
 	vim.o.termguicolors = true
 	vim.cmd("let g:gruvbox_material_background = 'soft'")
 	vim.cmd("colorscheme gruvbox-material")
+	--vim.cmd("colorscheme darkbox")
 	-- vim.cmd("colorscheme monet")
 end)
 
@@ -319,7 +321,7 @@ now(function()
 	local dprint = require("efmls-configs.formatters.dprint")
 
 	local rustfmt = {
-		formatCommand = "rustfmt --edition 2021 --emit=stdout",
+		formatCommand = "rustfmt --edition 2024 --emit=stdout",
 		formatStdin = true,
 	}
 
@@ -557,6 +559,17 @@ later(function()
 			require("rustaceanvim.neotest"),
 		},
 	})
+end)
+
+later(function()
+	add("duane9/nvim-rg")
+end)
+
+later(function()
+	-- Plug 'saecki/crates.nvim', { 'tag': 'stable' }
+	-- lua require('crates').setup()
+	add("saecki/crates.nvim")
+	require("crates").setup()
 end)
 
 require("keybinds")
