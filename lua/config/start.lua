@@ -13,6 +13,9 @@ vim.o.shiftwidth = 2
 vim.o.formatprg = "par  -w80"
 vim.o.termguicolors = true
 
+-- vim.opt.wrapscan = false
+vim.opt.wrap = false
+
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
