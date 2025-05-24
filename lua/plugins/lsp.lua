@@ -7,7 +7,7 @@ return {
 			ft = "lua",
 			opts = {
 				library = {
-					{ path = "${3rd/luv/library}", words = {"vim%.uv"} }
+					{ path = "${3rd/luv/library}", words = { "vim%.uv" } }
 				},
 			},
 		},
@@ -16,6 +16,8 @@ return {
 			require("lspconfig").lua_ls.setup({ capabilities = capabilities })
 			require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
 			require("lspconfig").ts_ls.setup({ capabilities = capabilities })
+			require("lspconfig").cssls.setup({ capabilities = capabilities })
+			-- note: rust is loaded with rustaceanvim
 		end,
 	},
 
@@ -26,9 +28,5 @@ return {
 	},
 
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-		lazy = false,
-	},
 
 }

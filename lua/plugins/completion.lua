@@ -23,6 +23,9 @@ return {
 
 			keymap = {
 				preset = 'super-tab',
+				['<Up>'] = { 'select_prev', 'fallback' },
+				['<Down>'] = { 'select_next', 'fallback' },
+
 				-- ['<tab>'] = { 'select_next' },
 				-- ['<S-tab>'] = { 'select_prev' },
 			},
