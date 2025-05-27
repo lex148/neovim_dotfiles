@@ -1,6 +1,11 @@
 vim.keymap.set("n", "<leader>n", "<cmd>:Oil<CR>", { desc = "Open Directory" })
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<CR>", { desc = "Telescope Find" })
 
+vim.keymap.set('n', '<leader>ee', vim.diagnostic.setqflist)
+vim.keymap.set('n', '<C-k>', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<C-j>', vim.diagnostic.goto_next)
+--vim.diagnostic.setqflist()
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -25,7 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-		vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+		--vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 		vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
 		vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 		vim.keymap.set('n', '<space>wl', function()

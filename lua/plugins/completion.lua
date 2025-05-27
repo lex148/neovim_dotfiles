@@ -22,12 +22,14 @@ return {
 			-- See :h blink-cmp-config-keymap for defining your own keymap
 
 			keymap = {
-				preset = 'super-tab',
-				['<Up>'] = { 'select_prev', 'fallback' },
-				['<Down>'] = { 'select_next', 'fallback' },
 
-				-- ['<tab>'] = { 'select_next' },
-				-- ['<S-tab>'] = { 'select_prev' },
+				-- preset = 'super-tab',
+				-- ['<Up>'] = { 'select_prev', 'fallback' },
+				-- ['<Down>'] = { 'select_next', 'fallback' },
+
+				preset = 'enter',
+				['<tab>'] = { 'select_next', 'fallback' },
+				['<S-tab>'] = { 'select_prev', 'fallback' },
 			},
 			--keymap = { preset = 'default' },
 
