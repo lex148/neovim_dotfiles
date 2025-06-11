@@ -1,7 +1,7 @@
 --vim.cmd [[colorscheme tokyonight-storm]]
+--vim.cmd [[colorscheme darcubox]]
 vim.cmd("let g:gruvbox_material_background = 'soft'")
 vim.cmd [[colorscheme gruvbox-material]]
-
 
 -- format the buffer on save with the LSP if it supports it
 vim.api.nvim_create_autocmd('LspAttach', {
